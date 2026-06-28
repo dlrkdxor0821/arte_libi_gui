@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="/">
+    <file>qml/Main.qml</file>
+    <file>qml/Style.js</file>
+    <file>qml/components/RobotFace.qml</file>
+    <file>qml/components/BigButton.qml</file>
+    <file>qml/components/Card.qml</file>
+    <file>qml/components/StatusPill.qml</file>
+    <file>qml/components/Chip.qml</file>
+    <file>qml/components/TopBar.qml</file>
+    <file>qml/components/MapView.qml</file>
+    <file>qml/components/ScreenHeader.qml</file>
+    <file>qml/screens/HomeScreen.qml</file>
+    <file>qml/screens/GuideScreen.qml</file>
+    <file>qml/screens/SearchScreen.qml</file>
+    <file>qml/screens/RecommendScreen.qml</file>
+    <file>qml/screens/StatusScreen.qml</file>
+    <file>qml/screens/AdminLoginScreen.qml</file>
+    <file>qml/screens/AdminControlScreen.qml</file>
+  </qresource>
+</RCC>
