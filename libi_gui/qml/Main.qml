@@ -50,27 +50,6 @@ ApplicationWindow {
     Component { id: adminLoginC;  AdminLoginScreen {} }
     Component { id: adminControlC;AdminControlScreen {} }
 
-    // 전역 비상정지 버튼 (항상 우하단)
-    Rectangle {
-        id: estopBtn
-        visible: !controller.emergencyStopped
-        width: 116; height: 116; radius: 58
-        color: S.danger
-        border.color: "white"; border.width: 4
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 22
-        z: 50
-        Column {
-            anchors.centerIn: parent; spacing: 0
-            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "⛔"; font.pixelSize: 34 }
-            Text { anchors.horizontalCenter: parent.horizontalCenter; text: "비상정지"; color: "white"; font.bold: true; font.pixelSize: 15; font.family: S.fontFamily }
-        }
-        scale: estopMa.pressed ? 0.93 : 1.0
-        Behavior on scale { NumberAnimation { duration: 80 } }
-        MouseArea { id: estopMa; anchors.fill: parent; onClicked: controller.emergencyStop() }
-    }
-
     // 비상정지 오버레이 (관리자 로그인/조작 화면에서는 숨겨 해제 흐름 허용)
     Rectangle {
         id: estopOverlay

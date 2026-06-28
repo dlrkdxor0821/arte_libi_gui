@@ -23,10 +23,17 @@ Item {
         onBack: controller.setMode("home")
     }
     BigButton {
+        id: logoutBtn
         anchors { right: parent.right; top: parent.top; rightMargin: 28; topMargin: 28 }
         implicitWidth: 150; implicitHeight: 56
         text: "로그아웃"; color: S.bgAlt; textColor: S.textSoft
         onClicked: controller.logout()
+    }
+    BigButton {
+        anchors { right: logoutBtn.left; top: parent.top; rightMargin: 12; topMargin: 28 }
+        implicitWidth: 160; implicitHeight: 56
+        text: "📋 작업 상태"; color: S.sun; textColor: S.text
+        onClicked: controller.setMode("status")
     }
 
     // 비상정지 배너

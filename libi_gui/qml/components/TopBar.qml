@@ -15,10 +15,12 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         spacing: 14
 
-        Rectangle {
-            width: 44; height: 44; radius: 14; color: S.primary
+        Image {
+            source: "../assets/arte_logo.png"
+            height: 60
+            fillMode: Image.PreserveAspectFit
+            mipmap: true
             anchors.verticalCenter: parent.verticalCenter
-            Text { anchors.centerIn: parent; text: "리"; color: "white"; font.bold: true; font.pixelSize: 22; font.family: S.fontFamily }
         }
         Column {
             anchors.verticalCenter: parent.verticalCenter
@@ -45,6 +47,32 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             pillColor: S.lavender
             text: "관리자"
+        }
+
+        // 비상정지 (배터리 바로 옆)
+        Rectangle {
+            id: estopBtn
+            visible: !controller.emergencyStopped
+            width: estopRow.width + 34; height: 50; radius: 25
+            color: estopMa.pressed ? Qt.darker(S.danger, 1.12) : S.danger
+            anchors.verticalCenter: parent.verticalCenter
+            Row {
+                id: estopRow
+                anchors.centerIn: parent
+                spacing: 9
+                Rectangle {
+                    width: 17; height: 17; radius: 4; color: "white"
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Text {
+                    text: "비상정지"; color: "white"; font.bold: true
+                    font.pixelSize: 17; font.family: S.fontFamily
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+            scale: estopMa.pressed ? 0.95 : 1.0
+            Behavior on scale { NumberAnimation { duration: 80 } }
+            MouseArea { id: estopMa; anchors.fill: parent; onClicked: controller.emergencyStop() }
         }
 
         Row {
@@ -81,6 +109,19 @@ Rectangle {
             font.pixelSize: 18; font.bold: true; color: S.text; font.family: S.fontFamily
             text: Qt.formatDateTime(new Date(), "hh:mm")
             Timer { interval: 10000; running: true; repeat: true; onTriggered: clock.text = Qt.formatDateTime(new Date(), "hh:mm") }
+        }
+
+        // 관리자 (톱니바퀴)
+        Rectangle {
+            id: adminBtn
+            width: 48; height: 48; radius: 14
+            color: gearMa.pressed ? S.bgAlt : "transparent"
+            border.color: S.border; border.width: 1.5
+            anchors.verticalCenter: parent.verticalCenter
+            Text { anchors.centerIn: parent; text: "⚙️"; font.pixelSize: 24 }
+            scale: gearMa.pressed ? 0.92 : 1.0
+            Behavior on scale { NumberAnimation { duration: 80 } }
+            MouseArea { id: gearMa; anchors.fill: parent; onClicked: controller.setMode("adminLogin") }
         }
     }
 }

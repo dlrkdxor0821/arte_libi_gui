@@ -10,7 +10,7 @@ Item {
         anchors { left: parent.left; top: parent.top; margins: 28 }
         width: parent.width - 56
         emoji: "📋"; title: "작업 상태"
-        onBack: controller.setMode("home")
+        onBack: controller.setMode("adminControl")
     }
 
     // 왼쪽: 상태 카드들

@@ -2,6 +2,15 @@
   <qresource prefix="/">
     <file>qml/Main.qml</file>
     <file>qml/Style.js</file>
+    <file>qml/assets/arte_logo.png</file>
+    <file>qml/assets/emotion/basic.gif</file>
+    <file>qml/assets/emotion/happy.gif</file>
+    <file>qml/assets/emotion/hello.gif</file>
+    <file>qml/assets/emotion/fun.gif</file>
+    <file>qml/assets/emotion/interest.gif</file>
+    <file>qml/assets/emotion/sad.gif</file>
+    <file>qml/assets/emotion/angry.gif</file>
+    <file>qml/assets/emotion/bored.gif</file>
     <file>qml/components/RobotFace.qml</file>
     <file>qml/components/BigButton.qml</file>
     <file>qml/components/Card.qml</file>
